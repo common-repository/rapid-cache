@@ -1,0 +1,251 @@
+<?php
+// @codingStandardsIgnoreFile
+/**
+ * Advanced cache stub.
+ *
+ * @since 1.0.0
+ */
+namespace MegaOptim\RapidCache;
+
+use MegaOptim\RapidCache\Classes;
+
+if (!defined('WPINC')) {
+    exit('Do NOT access this file directly.');
+}
+if (!defined('RAPID_CACHE_PLUGIN_FILE')) {
+    /*
+     * Plugin file path.
+     *
+     * @since 1.0.0
+     *
+     * @var string Absolute server path to CC plugin file.
+     */
+    define('RAPID_CACHE_PLUGIN_FILE', '%%RAPID_CACHE_PLUGIN_FILE%%');
+}
+if (!defined('RAPID_CACHE_AC_FILE_VERSION')) {
+    /*
+     * Rapid Cache AC file version.
+     *
+     * @since 1.0.0
+     *
+     * @var string Plugin version when AC file was built.
+     */
+    define('RAPID_CACHE_AC_FILE_VERSION', '%%RAPID_CACHE_AC_FILE_VERSION%%');
+}
+if (defined('WP_DEBUG') && WP_DEBUG) {
+    if ((include_once(dirname(RAPID_CACHE_PLUGIN_FILE).'/includes/stub.php')) === false) {
+        return; // Unable to find stub. Fail softly w/ PHP warning.
+    }
+} elseif ((@include_once(dirname(RAPID_CACHE_PLUGIN_FILE).'/includes/stub.php')) === false) {
+    return; // Unable to find stub. Fail softly.
+}
+
+if (defined('WP_DEBUG') && WP_DEBUG) {
+    if ((include_once(dirname(RAPID_CACHE_PLUGIN_FILE).'/includes/utils/wp-cache-postload.php')) === false) {
+        return; // Unable to find postload function(s). Fail softly w/ PHP warning.
+    }
+} elseif ((@include_once(dirname(RAPID_CACHE_PLUGIN_FILE).'/includes/utils/wp-cache-postload.php')) === false) {
+    return; // Unable to find postload function(s). Fail softly.
+}
+
+if (!defined('RAPID_CACHE_PRO')) {
+    /*
+     * Rapid Cache Pro flag.
+     *
+     * @since 1.0.0
+     *
+     * @var string|integer|boolean A boolean-ish value; e.g. `1` or `0`.
+     */
+    define('RAPID_CACHE_PRO', MEGAOPTIM_RAPID_CACHE_IS_PRO);
+}
+if (!defined('RAPID_CACHE_ENABLE')) {
+    /*
+     * Is Rapid Cache enabled?
+     *
+     * @since 1.0.0
+     *
+     * @var string|integer|boolean A boolean-ish value; e.g. `1` or `0`.
+     */
+    define('RAPID_CACHE_ENABLE', '%%RAPID_CACHE_ENABLE%%');
+}
+if (!defined('RAPID_CACHE_DEBUGGING_ENABLE')) {
+    /*
+     * Is Rapid Cache debugging enabled?
+     *
+     * @since 1.0.0
+     *
+     * @var string|integer|boolean A boolean-ish value; e.g. `1` or `0`.
+     */
+    define('RAPID_CACHE_DEBUGGING_ENABLE', '%%RAPID_CACHE_DEBUGGING_ENABLE%%');
+}
+if (!defined('RAPID_CACHE_ALLOW_CLIENT_SIDE_CACHE')) {
+    /*
+     * Allow browsers to cache each document?
+     *
+     * @since 1.0.0
+     *
+     * @var string|integer|boolean A boolean-ish value; e.g. `1` or `0`.
+     *
+     * @note If this is a `FALSE` (or an empty) value; Rapid Cache will send no-cache headers.
+     *    If `TRUE`, Rapid Cache will NOT send no-cache headers.
+     */
+    define('RAPID_CACHE_ALLOW_CLIENT_SIDE_CACHE', '%%RAPID_CACHE_ALLOW_CLIENT_SIDE_CACHE%%');
+}
+if (!defined('RAPID_CACHE_GET_REQUESTS')) {
+    /*
+     * Cache `$_GET` requests w/ a query string?
+     *
+     * @since 1.0.0
+     *
+     * @var string|integer|boolean A boolean-ish value; e.g. `1` or `0`.
+     */
+    define('RAPID_CACHE_GET_REQUESTS', '%%RAPID_CACHE_GET_REQUESTS%%');
+}
+if (!defined('RAPID_CACHE_IGNORE_GET_REQUEST_VARS')) {
+    /*
+     * Ignore `$_GET` request query vars?
+     *
+     * @since 1.0.0
+     *
+     * @var string A regular expression; else an empty string.
+     */
+    define('RAPID_CACHE_IGNORE_GET_REQUEST_VARS', '%%RAPID_CACHE_IGNORE_GET_REQUEST_VARS%%');
+}
+if (!defined('RAPID_CACHE_CACHE_404_REQUESTS')) {
+    /*
+     * Cache 404 errors?
+     *
+     * @since 1.0.0
+     *
+     * @var string|integer|boolean A boolean-ish value; e.g. `1` or `0`.
+     */
+    define('RAPID_CACHE_CACHE_404_REQUESTS', '%%RAPID_CACHE_CACHE_404_REQUESTS%%');
+}
+if (!defined('RAPID_CACHE_CACHE_NONCE_VALUES')) {
+    /*
+     * Cache HTML containing nonce values?
+     *
+     * @since 1.0.0
+     *
+     * @var string|integer|boolean A boolean-ish value; e.g. `1` or `0`.
+     */
+    define('RAPID_CACHE_CACHE_NONCE_VALUES', '%%RAPID_CACHE_CACHE_NONCE_VALUES%%');
+}
+if (!defined('RAPID_CACHE_CACHE_NONCE_VALUES_WHEN_LOGGED_IN')) {
+    /*
+     * Cache HTML containing nonce values for Logged-In Users?
+     *
+     * @since 1.0.0
+     *
+     * @var string|integer|boolean A boolean-ish value; e.g. `1` or `0`.
+     */
+    define('RAPID_CACHE_CACHE_NONCE_VALUES_WHEN_LOGGED_IN', '%%RAPID_CACHE_CACHE_NONCE_VALUES_WHEN_LOGGED_IN%%');
+}
+if (!defined('RAPID_CACHE_FEEDS_ENABLE')) {
+    /*
+     * Cache XML/RSS/Atom feeds?
+     *
+     * @since 1.0.0
+     *
+     * @var string|integer|boolean A boolean-ish value; e.g. `1` or `0`.
+     */
+    define('RAPID_CACHE_FEEDS_ENABLE', '%%RAPID_CACHE_FEEDS_ENABLE%%');
+}
+
+if (!defined('RAPID_CACHE_WHEN_LOGGED_IN')) {
+    /*
+     * Cache logged-in users?
+     *
+     * @since 1.2.0
+     *
+     * @var string|integer|boolean A boolean-ish value; e.g. `1` or `0`; or `postload`.
+     */
+    define('RAPID_CACHE_WHEN_LOGGED_IN', '%%RAPID_CACHE_WHEN_LOGGED_IN%%');
+}
+
+if (!defined('RAPID_CACHE_DIR')) {
+    /*
+     * Directory used to store cache files; relative to `WP_CONTENT_DIR`.
+     *
+     * @since 1.0.0
+     *
+     * @var string Absolute server directory path.
+     */
+    define('RAPID_CACHE_DIR', WP_CONTENT_DIR.'/'.'%%RAPID_CACHE_DIR%%');
+}
+
+if (!defined('RAPID_CACHE_MAX_AGE')) {
+    /*
+     * Cache expiration time.
+     *
+     * @since 1.0.0
+     *
+     * @var string Anything compatible with PHP's {@link \strtotime()}.
+     */
+    define('RAPID_CACHE_MAX_AGE', '%%RAPID_CACHE_MAX_AGE%%');
+}
+
+if (!defined('RAPID_CACHE_EXCLUDE_HOSTS')) {
+    /*
+     * Host exclusions.
+     *
+     * @since 1.0.0
+     *
+     * @var string A regular expression; else an empty string.
+     */
+    define('RAPID_CACHE_EXCLUDE_HOSTS', '%%RAPID_CACHE_EXCLUDE_HOSTS%%');
+}
+if (!defined('RAPID_CACHE_EXCLUDE_URIS')) {
+    /*
+     * URI exclusions.
+     *
+     * @since 1.0.0
+     *
+     * @var string A regular expression; else an empty string.
+     */
+    define('RAPID_CACHE_EXCLUDE_URIS', '%%RAPID_CACHE_EXCLUDE_URIS%%');
+}
+if (!defined('RAPID_CACHE_EXCLUDE_CLIENT_SIDE_URIS')) {
+    /*
+     * Client-side URI exclusions.
+     *
+     * @since 1.0.0
+     *
+     * @var string A regular expression; else an empty string.
+     */
+    define('RAPID_CACHE_EXCLUDE_CLIENT_SIDE_URIS', '%%RAPID_CACHE_EXCLUDE_CLIENT_SIDE_URIS%%');
+}
+if (!defined('RAPID_CACHE_EXCLUDE_REFS')) {
+    /*
+     * HTTP referrer exclusions.
+     *
+     * @since 1.0.0
+     *
+     * @var string A regular expression; else an empty string.
+     */
+    define('RAPID_CACHE_EXCLUDE_REFS', '%%RAPID_CACHE_EXCLUDE_REFS%%');
+}
+if (!defined('RAPID_CACHE_EXCLUDE_AGENTS')) {
+    /*
+     * HTTP user-agent exclusions.
+     *
+     * @since 1.0.0
+     *
+     * @var string A regular expression; else an empty string.
+     */
+    define('RAPID_CACHE_EXCLUDE_AGENTS', '%%RAPID_CACHE_EXCLUDE_AGENTS%%');
+}
+if (!defined('RAPID_CACHE_404_CACHE_FILENAME')) {
+    /*
+     * 404 file name (if applicable).
+     *
+     * @since 1.0.0
+     *
+     * @var string A unique file name that will not conflict with real paths.
+     *    This should NOT include the extension; basename only please.
+     */
+    define('RAPID_CACHE_404_CACHE_FILENAME', '----404----');
+}
+
+$GLOBALS[MEGAOPTIM_RAPID_CACHE_GLOBAL_NS.'_advanced_cache']  = new Classes\AdvancedCache();
+$GLOBALS[MEGAOPTIM_RAPID_CACHE_GLOBAL_NS.'__advanced_cache'] = &$GLOBALS[MEGAOPTIM_RAPID_CACHE_GLOBAL_NS.'_advanced_cache'];

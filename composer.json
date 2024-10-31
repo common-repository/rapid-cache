@@ -1,0 +1,27 @@
+{
+    "name": "megaoptim/rapid-cache",
+    "description": "WordPress Caching Plugin",
+    "type": "wordpress-plugin",
+    "license": "GPLv2",
+    "authors": [
+        {
+            "name": "gdarko",
+            "email": "dg@darkog.com"
+        }
+    ],
+    "autoload" : {
+        "psr-4" : {
+            "MegaOptim\\RapidCache\\": "includes/src/"
+        },
+        "files": [
+            "includes/utils/i18n.php",
+            "includes/utils/helpers.php"
+        ]
+    },
+    "config": {
+        "optimize-autoloader": true
+    },
+    "require": {
+        "symfony/polyfill-mbstring": "1.18.*"
+    }
+}
